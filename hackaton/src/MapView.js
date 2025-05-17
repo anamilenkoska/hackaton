@@ -1,10 +1,15 @@
-import React, { use, useEffect } from 'react';
+import React, { use, useEffect,useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {useNavigate} from 'react-router';
+import ParkedCarInfo from './ParkedCarInfo';
+
+
 
 function MapView() {
     const navigate=useNavigate()
+      const [availableSpots, setAvailableSpots] = useState(10);
+
     const parkingSpots = [
         { name: "Vergerijev trg", coords: [45.5491, 13.7301], capacity: 20, occupied: 19, price: 1 },
         { name: "Trg Brolo", coords: [45.5485, 13.7305], capacity: 20, occupied: 20, price: 1 },
@@ -277,17 +282,20 @@ function askArrivalConfirmation(spotName) {
     //   }
     }, 36000); // simulate 15s expiration
 
+     const handleSessionEnd = () => {
+    setAvailableSpots((prev) => prev + 1);
+  };
+
     return () => {
         map.remove();
         clearTimeout(timer);
 
     }
 
-        
-
     }, []);
 
     return (
+        
         <div>
             <h2 style={{ textAlign: "center" }}>Nearby parking in Koper</h2>
             <div id="controls" style={{ textAlign: "center", margin: "10px" }}>

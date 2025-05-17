@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import MapView from './MapView';
 import { BrowserRouter as Router,Routes,Route } from 'react-router';
 import ParkedCarInfo from './ParkedCarInfo';
+import WebSocketNotification from './WebSocketNotification';
 
 function App() {
   // const ws = useRef(null);
@@ -81,11 +82,23 @@ function App() {
   return(
 
     <Router>
-      <Routes>
-        <Route path="/" element={<MapView/>}/>
-        <Route path="/park" element={<ParkedCarInfo/>}/>
-      </Routes>
+      <div>
+        {/* Always mounted so all users can receive messages */}
+        <WebSocketNotification />
+
+        <Routes>
+          <Route path="/" element={<MapView />} />
+          <Route path="/park" element={<ParkedCarInfo />} />
+        </Routes>
+      </div>
     </Router>
+
+    // <Router>
+    //   <Routes>
+    //     <Route path="/" element={<MapView/>}/>
+    //     <Route path="/park" element={<ParkedCarInfo/>}/>
+    //   </Routes>
+    // </Router>
 
     // <div>
     //   <MapView />
