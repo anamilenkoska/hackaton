@@ -9,6 +9,7 @@ const wss = new WebSocket.Server({ server });
 let clients = [];
 
 // server.js
+const WebSocket = require('ws');
 
 wss.on('connection', (ws) => {
   console.log('Client connected');
