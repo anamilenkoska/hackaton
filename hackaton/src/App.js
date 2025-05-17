@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import MapView from './MapView';
+import { BrowserRouter as Router,Routes,Route } from 'react-router';
+import ParkedCarInfo from './ParkedCarInfo';
 
 function App() {
   // const ws = useRef(null);
@@ -77,9 +79,17 @@ function App() {
   // );
 
   return(
-    <div>
-      <MapView />
-    </div>
+
+    <Router>
+      <Routes>
+        <Route path="/" element={<MapView/>}/>
+        <Route path="/park" element={<ParkedCarInfo/>}/>
+      </Routes>
+    </Router>
+
+    // <div>
+    //   <MapView />
+    // </div>
   )
 }
 
