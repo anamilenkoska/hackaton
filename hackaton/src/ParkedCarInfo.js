@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MapView from './MapView';
-import WebSocketNotification from './WebSocketNotification';
 
 function ParkedCarInfo({ onSessionEnd }) {
   const [arrivalTime, setArrivalTime] = useState('');
@@ -69,25 +68,6 @@ function ParkedCarInfo({ onSessionEnd }) {
     return () => clearTimeout(timerIdRef.current);
   }, [secondsLeft, showForm, sessionEnded]);
 
-  const handleEndSessionConfirm = () => {
-  if (secondsLeft === 0 && socketRef.current?.readyState === WebSocket.OPEN) {
-  const message = {
-    type: 'spotAvailable',
-    text: 'A parking spot is now available!',
-    sender: CLIENT_ID
-  };
-  socketRef.current.send(JSON.stringify(message));
-}
-
-
-  if (typeof onSessionEnd === 'function') {
-    onSessionEnd(); // return to map
-  }
-};
-
-const CLIENT_ID = Math.random().toString(36).substring(2, 15);
-
-
   const formatTimer = (secs) => {
     const h = Math.floor(secs / 3600);
     const m = Math.floor((secs % 3600) / 60);
@@ -133,9 +113,6 @@ const CLIENT_ID = Math.random().toString(36).substring(2, 15);
       <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-50 bg-white rounded-xl shadow-lg p-5 w-80 text-center">
         <h2 className="text-lg font-semibold mb-2">Parking Session Ended</h2>
         <p className="mb-4">Thank you! Availability increased by 1.</p>
-        <button onClick={handleEndSessionConfirm} className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-          OK
-        </button>
         <MapView/>
 
       </div>

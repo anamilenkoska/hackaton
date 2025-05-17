@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import MapView from './MapView';
 import { BrowserRouter as Router,Routes,Route } from 'react-router';
 import ParkedCarInfo from './ParkedCarInfo';

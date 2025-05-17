@@ -1,9 +1,7 @@
-import React, { use, useEffect,useState } from 'react';
+import { useEffect,useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {useNavigate} from 'react-router';
-import ParkedCarInfo from './ParkedCarInfo';
-
 
 
 function MapView() {
@@ -150,7 +148,7 @@ function MapView() {
 // };
 
 function askArrivalConfirmation(spotName) {
-    const confirmed = window.confirm("Your reservation time ended. Did you arrive?");
+    const confirmed = window.confirm("Your reservation time ended. Proceed to parking?");
     if (confirmed) {
       // User confirmed arrival: navigate immediately without popup
       const spot = parkingSpots.find(s => s.name === spotName);
@@ -275,23 +273,9 @@ function askArrivalConfirmation(spotName) {
         const button = document.getElementById('findNearbyParkings');
         if (button) button.onclick = findNearbyParkings;
 
-        const timer = setTimeout(() => {
-      //const confirmed = window.confirm("Your reservation has expired. Would you like to go to Parked Car Info?");
-    //   if (confirmed) {
-    //     navigate('/park');
-    //   }
-    }, 36000); // simulate 15s expiration
-
-     const handleSessionEnd = () => {
-    setAvailableSpots((prev) => prev + 1);
-  };
-
     return () => {
         map.remove();
-        clearTimeout(timer);
-
     }
-
     }, []);
 
     return (
