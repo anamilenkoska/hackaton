@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Make it full screen and centered */
+  body, html {
+    height: 100%;
+    width: 100%;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Ensure container fills screen on mobile too */
+  .container {
+    width: 100%;
+    max-width: 480px;
+    padding: 24px;
+    height: 90vh; /* Make it taller */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  
+  .report-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    padding: 32px; /* More padding */
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* More spacing between elements */
+    width: 100%;
+    flex-grow: 1; /* Allow it to stretch */
+  }
+  
+  
+  /* Title */
+  .report-card h2 {
+    text-align: center;
+    font-size: 22px;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+  
+  /* Form structure */
+  label {
+    font-size: 16px;
+    gap: 8px;
+  }
+  
+  .input,
+  textarea.input,
+  input[type="file"] {
+    background-color: #e6f0ff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  textarea.input {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  /* Issue buttons */
+  .issue-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .issue-button {
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #e6f0ff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .issue-button.selected {
+    background-color: #2a65db;
+    color: white;
+    border-color: #2a65db;
+  }
+  
+  /* File input spacing */
+  input[type="file"] {
+    background-color: #e6f0ff;
+    padding: 10px;
+  }
+  
+  /* Buttons layout */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  
+  .cancel, .submit {
+    flex: 1;
+    padding: 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 40px;
+  }
+  
+  .cancel {
+    background-color: #ffe5e5;
+    color: #333;
+  }
+  
+  .submit {
+    background-color: #2a65db;
+    color: white;
+  }
+
+  .upload-box {
+    background-color: #e6f0ff;
+    height: 200px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s;
+  }
+  
+  .upload-box:hover {
+    background-color: #d4e4ff;
+  }
+  
+  .plus-icon {
+    background-color: #cde0fc;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #2a65db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }

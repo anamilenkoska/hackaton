@@ -6,8 +6,6 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
-// server.js
-
 wss.on('connection', (ws) => {
   console.log('Client connected');
 
@@ -28,7 +26,6 @@ wss.on('connection', (ws) => {
 });
 
 console.log('WebSocket server running on ws://localhost:3001');
-
 
 server.listen(3001, () => {
   console.log('WebSocket server running on port 3001');

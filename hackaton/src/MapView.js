@@ -1,12 +1,11 @@
-import { useEffect,useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import {useNavigate} from 'react-router';
-
+import { useNavigate } from 'react-router';
+import { useState, useEffect } from 'react';
+import './MapView.css';
 
 function MapView() {
-    const navigate=useNavigate()
-      const [availableSpots, setAvailableSpots] = useState(10);
+    const navigate = useNavigate()
 
     const parkingSpots = [
         { name: "Vergerijev trg", coords: [45.5491, 13.7301], capacity: 20, occupied: 19, price: 1 },
@@ -51,20 +50,39 @@ function MapView() {
         const ratio = (spot.capacity - spot.occupied) / spot.capacity;
         const icon = getColorIcon(ratio);
         const marker = parkingMarkers[spot.name];
-
+    
         let content = `<b>${spot.name}</b><br>
-      ${spot.capacity - spot.occupied} / ${spot.capacity} spots available<br>
-      ${spot.price} euro/h`;
-
+        ${spot.capacity - spot.occupied} / ${spot.capacity} spots available<br>
+        ${spot.price} euro/h`;
+    
         if (countdownSeconds !== undefined) {
             content += `<br><i>Reserved: ${countdownSeconds}s left</i>`;
         }
-
-        content += `<br><button onclick="window.reserveSpot('${spot.name}')">Reserve</button>`;
-
+    
+        content += `<br><button 
+            onclick="window.reserveSpot('${spot.name}')"
+            style="
+              background-color: #2a65db;
+              color: white;
+              border: none;
+              padding: 12px 24px;
+              border-radius: 8px;
+              cursor: pointer;
+              font-size: 14px;
+              width: 90%;
+              max-width: 160px;
+              margin-top: 8px;
+              display: block;
+              text-align: center;
+            "
+          >
+            Reserve
+          </button>`;
+    
         marker.setIcon(icon);
         marker.setPopupContent(content);
     }
+    
 
     function createTimer({ durationMs, onTick, onComplete }) {
         let remaining = durationMs;
@@ -102,7 +120,7 @@ function MapView() {
         alert(`You reserved ${spotName} for 5 minutes.`);
 
         const timer = createTimer({
-            durationMs: 0.5 * 60 * 1000,
+            durationMs: 5 * 60 * 1000,
             onTick: (msLeft) => {
                 updateMarkerVisuals(spot, Math.floor(msLeft / 1000));
             },
@@ -116,53 +134,22 @@ function MapView() {
     }
     window.reserveSpot = reserveSpot;
 
-//     function showArrivalConfirmation(spotName) {
-//         const spot = parkingSpots.find(s => s.name === spotName);
-//         const marker = parkingMarkers[spotName];
-
-//         const popupContent = `
-//       <b>${spot.name}</b><br>
-//       Reservation time ended.<br>
-//       <strong>Did you arrive?</strong><br>
-//       <button onclick="window.confirmArrival('${spotName}')">Yes</button>
-//       <button onclick="window.rejectArrival('${spotName}')">No</button>
-//     `;
-//         marker.setPopupContent(popupContent).openPopup();
-//     }
-
-//     function confirmArrival(spotName) {
-//         const spot = parkingSpots.find(s => s.name === spotName);
-//         if (!spot) return;
-//         updateMarkerVisuals(spot);
-//         delete activeTimers[spotName];
-//         alert(`${spotName}: Your arrival has been confirmed.`);
-//     }
-//     //window.confirmArrival = confirmArrival;
-//     window.confirmArrival = (spotName) => {
-//     const spot = parkingSpots.find(s => s.name === spotName);
-//     if (!spot) return;
-//     updateMarkerVisuals(spot);
-//     delete activeTimers[spotName];
-//     alert(`${spotName}: Your arrival has been confirmed.`);
-//     navigate('/park'); // <- Add navigation here
-// };
-
-function askArrivalConfirmation(spotName) {
-    const confirmed = window.confirm("Your reservation time ended. Proceed to parking?");
-    if (confirmed) {
-      // User confirmed arrival: navigate immediately without popup
-      const spot = parkingSpots.find(s => s.name === spotName);
-      if (spot) {
-        // Just update visuals and clear timer
-        updateMarkerVisuals(spot);
-        delete activeTimers[spotName];
-        navigate('/park');
-      }
-    } else {
-      // User rejected arrival: release spot and update marker
-      rejectArrival(spotName);
+    function askArrivalConfirmation(spotName) {
+        const confirmed = window.confirm("Your reservation time ended. Proceed to parking?");
+        if (confirmed) {
+            // User confirmed arrival: navigate immediately without popup
+            const spot = parkingSpots.find(s => s.name === spotName);
+            if (spot) {
+                // Just update visuals and clear timer
+                updateMarkerVisuals(spot);
+                delete activeTimers[spotName];
+                navigate('/park');
+            }
+        } else {
+            // User rejected arrival: release spot and update marker
+            rejectArrival(spotName);
+        }
     }
-  }
 
     function rejectArrival(spotName) {
         const spot = parkingSpots.find(s => s.name === spotName);
@@ -273,20 +260,26 @@ function askArrivalConfirmation(spotName) {
         const button = document.getElementById('findNearbyParkings');
         if (button) button.onclick = findNearbyParkings;
 
-    return () => {
-        map.remove();
-    }
+        return () => {
+            map.remove();
+        }
+
     }, []);
 
     return (
-        
-        <div>
-            <h2 style={{ textAlign: "center" }}>Nearby parking in Koper</h2>
-            <div id="controls" style={{ textAlign: "center", margin: "10px" }}>
-                <button id="findNearbyParkings">Find nearby parking</button>
-            </div>
-            <div id="map" style={{ height: "90vh", width: "100%" }}></div>
-        </div>
+
+<div>
+  <h1 className="title-2park">2Park</h1>
+
+  <div className="map-controls">
+    <button className="locate-button" id="findNearbyParkings">
+      <img src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="Locate" />
+    </button>
+  </div>
+
+  <div id="map"></div>
+</div>
+
     );
 }
 

@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 90vh;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  
+  .card h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+  }
+  
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 4px;
+    display: block;
+  }
+  
+  .input {
+    background-color: #e6f0ff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .pay {
+    background-color: #2a65db;
+    color: white;
+    border: none;
+    padding: 12px 32px; /* wider horizontally */
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%; /* make it stretch full width inside container */
+    max-width: 200px; /* optional: control max size */
+  }
+  .pay:hover {
+    background-color: #1e4db3; /* darker blue on hover */
+  }
+  
+  .report-issue-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+    font-size: 0.75rem; /* smaller font */
+    color: #555;
+  }
+  
+  .report-issue-text {
+    margin-right: 4px;
+    cursor: pointer;
+    font-weight: 400;
+    text-decoration: none; /* default state */
+  }
+  
+  .report-issue-text:hover {
+    text-decoration: underline; /* underline on hover */
+  }
+  
+  
+  .report-issue-icon {
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .timer {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2d3748; /* dark gray */
+    margin-top: 10px;
+  }
+  
+  .card.text-center p:first-child {
+    font-size: 1.25rem;
+    color: #4a5568; /* medium gray */
+    margin-bottom: 10px;
+  }
+  /* Add these styles to ParkedCarInfo.css */
+.full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background: white;
+  }
+  
+  .map-container {
+    flex: 1;
+    width: 100%;
+    height: calc(100% - 120px);
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+
+  
+  .full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999; /* increased */
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .full-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* center vertically */
+    align-items: center;     /* center horizontally */
+  }

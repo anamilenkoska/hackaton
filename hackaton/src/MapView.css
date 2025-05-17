@@ -1,0 +1,52 @@
+.map-controls {
+  position: absolute;
+  top: 220px; /* lowered to avoid overlap */
+  left: 0px;
+  z-index: 1000;
+}
+
+.locate-button {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.locate-button img {
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+}
+
+
+.title-2park {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 900;
+  font-family: 'Poppins', sans-serif;
+  color: #293abe;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+  letter-spacing: 0.1em;
+  user-select: none;
+  animation: glow 2.5s ease-in-out infinite alternate;
+  background-color:aliceblue;
+  padding: 10px;
+}
+
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  height: 100vh;
+  width: 100vw;
+}
