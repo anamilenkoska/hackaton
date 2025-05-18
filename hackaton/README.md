@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# 2Park - Driver Assistance
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2Park is a web application that helps drivers find available parking spots and reserve them in real-time using an interactive map. Users can view how many spots are available on a given parking lot, the price, opening hours and other crucial information. They can make instant reservations, and receive live updates as spaces become free or occupied. The platform also allows users to report issues such as improper or illegal parking, helping improve parking efficiency and enforcement. Ideal for urban areas, 2Park not only reduces the time spent searching for parking, but also provides driving assistance that enhances convenience and safety.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Real-time map of parking spot availability
+- Parking spots reservation
+- Problem reports (e.g. improper parking)
+- Live notification updates
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+**Front-end:** React, Leaflet, CSS, HTML
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Back-end:** Node, Express
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Option 1: Use Online**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can access the live version of 2Park directly via the hosted web app: https://hackaton-three-lime.vercel.app/
 
-### `npm run eject`
+No installation required — simply open the link in your browser and start using the app!
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Option 2: Run Locally**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git clone https://github.com/anamilenkoska/hackaton.git
+cd hackaton
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Install dependencies:
+```bash
+cd src
+npm install
+```
 
-## Learn More
+3. Start the development server:
+```bash
+npm install
+```
+Then open http://localhost:3000 in your browser to access the app locally.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    
+## Authors
 
-### Analyzing the Bundle Size
+FAMNIT Hackathon 4.0 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Group 4loop:
+- Ana Milenkoska
+- Simona Filiposka
+- Kristina Tanaskovska
+- Sara Manevska
